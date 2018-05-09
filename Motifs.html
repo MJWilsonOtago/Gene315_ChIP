@@ -131,7 +131,12 @@ $(document).ready(function () {
 <ol style="list-style-type: decimal">
 <li>Download the required packages from bioconductor (if required)</li>
 </ol>
-<p>{r message =FALSE, results=‘hide’} source(“<a href="https://bioconductor.org/biocLite.R" class="uri">https://bioconductor.org/biocLite.R</a>”) biocLite(“BSgenome.Mmusculus.UCSC.mm10”) biocLite(“JASPAR2018”) biocLite(“TFBSTools”) biocLite(“ggplot2”)</p>
+<pre class="r"><code>source(&quot;https://bioconductor.org/biocLite.R&quot;)
+biocLite(&quot;BSgenome.Mmusculus.UCSC.mm10&quot;)
+biocLite(&quot;JASPAR2018&quot;)
+biocLite(&quot;GO.db&quot;)
+biocLite(&quot;TFBSTools&quot;)
+biocLite(&quot;ggplot2&quot;)</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Load the required packages into Rstudio</li>
 </ol>
@@ -151,7 +156,8 @@ require(BSgenome.Mmusculus.UCSC.mm10)</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Extract the DNA sequences for each peak region from the mouse genome</li>
 </ol>
-<pre class="r"><code>peaks.seq &lt;- getSeq(Mmusculus, peaks)</code></pre>
+<pre class="r"><code>genome &lt;- BSgenome.Mmusculus.UCSC.mm10
+peaks.seq &lt;- getSeq(genome, peaks)</code></pre>
 <ol start="5" style="list-style-type: decimal">
 <li>Now you need to obtain the TF motif details in order to use TBStools to search for this motif in your peak sequences. In my example, my two top TF binding sites were for Errb and Nkx2-8.</li>
 </ol>
