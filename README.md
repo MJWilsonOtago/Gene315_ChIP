@@ -3,7 +3,62 @@
 
 Week 1 Using GenomicRanges to find overlapping and subsets of peak regions
 
-https://rawgit.com/MJWilsonOtago/Gene315_ChIP/master/GenomicRanges.html
+## Using GenomicRanges to find common and unique peak regions
+
+First you need to make sure you have the required packages installed. If not, you can download them from bioconductor using the code below:
+
+```{r message=FALSE, results='hide'}
+source("http://bioconductor.org/biocLite.R")
+biocLite("GenomicRanges")
+biocLite("RIPSeeker")
+```
+
+1. Load the required packages into R
+```{r message =FALSE, results='hide'}
+library("RIPSeeker")
+library(GenomicRanges)
+```
+
+2. Read the peak region bed files into R for each data set
+
+```{r}
+pk1=read.table("H3K4me1_all_peaks.bed")
+pk2=read.table("H3K27Ac_all_peaks.bed")
+```
+
+3. Convert these into an appropriate data frame
+
+```{r}
+pk1.gr=makeGRangesFromDataFrame(pk1, seqnames.field=c("V1"),start.field=c("V2"), end.field=c("V3"))
+pk2.gr=makeGRangesFromDataFrame(pk2, seqnames.field=c("V1"),start.field=c("V2"), end.field=c("V3"))
+```
+4. Generate a subset of peak regions: peak regions that a common to both data sets. In this example, this function will give me a list of the genome regions enriched for both the H3Kme1 and K27me3 modifications in ES cells.  
+
+```{r}
+subset <- subsetByOverlaps(pk1.gr,pk2.gr)
+#How many peak regions were common to both datasets?
+length(subset)
+#save the results to a new bed file
+export.bed(subset, "subset.bed")
+```
+
+5. How many peak regions are unique to the first data set (in my case, H3K4me1, loaded into R as pk1 (above))
+
+```{r}
+setdiff <- setdiff(pk1.gr, pk2.gr)
+length(setdiff)
+export.bed(setdiff, "setdiff1.bed")
+```
+
+6. What about for the second dataset (in this case pk2=H3K27ac)?
+
+```{r}
+setdiff <- setdiff(pk2.gr, pk1.gr)
+length(setdiff)
+export.bed(setdiff, "setdiff2.bed")
+```
+
+Now you will have 3 new bed files in your working directory. One for peak regions common to both (ie. both histone marks are present at these genomic co-ordinates) and two files with the unique peak regions (ie. one of the histone marks is present).
 
 
 Week 2 Motif Analysis: find transcription factor sites overrepresented in your peak regions of interest
