@@ -106,14 +106,9 @@ genome <- BSgenome.Mmusculus.UCSC.mm10
 peaks.seq <- getSeq(genome, peaks)
 ```
 
-5. Now you need to obtain the TF motif details in order to use TBStools to search for this motif in your peak sequences. In my example, my two top TF binding sites were for Errb and Nkx2-8.
-
-To get the Transcription factor (TF) motif information from the JASPAR website. Go to http://jaspar.genereg.net/ 
-Select JASPAR CORE vertebrata
-+ I searched for Errb (name of the transcription factor)
-+ Went to the page with the  information regarding the DNA binding motif eg how it was identified and has a sequence logo you can download for your poster. 
-+ Noted down the matrix ID number:MA0141.2 	
-+ The matrix ID for my other factor of interest was MA0673.1
+5. Now you will use the motif IDs (from RSAT) to find the motifs in each sequence. In my example, my two top TF binding sites were for Errb and Nkx2-8.
++ ID number:MA0141.2 	
++ ID for my other factor of interest was MA0673.1
 
 *remember the ID number you use will be different to the example here*
 
