@@ -8,9 +8,10 @@ Week 1 Using GenomicRanges to find overlapping and subsets of peak regions
 First you need to make sure you have the required packages installed. If not, you can download them from bioconductor using the code below:
 
 ```{r message=FALSE, results='hide'}
-source("http://bioconductor.org/biocLite.R")
-biocLite("GenomicRanges")
-biocLite("RIPSeeker")
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("GenomicRanges")
+BiocManager::install("RIPSeeker")
 ```
 
 1. Load the required packages into R
