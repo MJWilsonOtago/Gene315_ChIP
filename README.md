@@ -13,6 +13,12 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 BiocManager::install("GenomicRanges")
 BiocManager::install("RIPSeeker")
 ```
+Note: if you are using an older version of R (earlier than 3.6), install the packages using Bioconductor
+```{r message=FALSE, results='hide'}
+source("http://bioconductor.org/biocLite.R")
+biocLite("GenomicRanges")
+biocLite("RIPSeeker")
+```
 
 1. Load the required packages into R
 ```{r message =FALSE, results='hide'}
