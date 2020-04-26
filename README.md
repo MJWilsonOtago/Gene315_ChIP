@@ -75,7 +75,15 @@ Week 2 Motif Analysis: find transcription factor sites overrepresented in your p
 Using RSAT we identified candidate transcription factor (TF) DNA binding motifs, enriched within the subset of ChIP peak regions. 
 
 1. Download the required packages from bioconductor (if required)
-
+```{r message =FALSE, results='hide'}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install("BSgenome.Mmusculus.UCSC.mm10")
+BiocManager::install("JASPAR2018")
+BiocManager::install("TFBSTools")
+BiocManager::install("ggplot2")
+```
+Note: if you are using an older version of R (earlier than 3.6), install the packages using Bioconductor
 ```{r message =FALSE, results='hide'}
 source("https://bioconductor.org/biocLite.R")
 biocLite("BSgenome.Mmusculus.UCSC.mm10")
