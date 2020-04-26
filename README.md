@@ -160,9 +160,10 @@ sum(countNkx2 >= 1)
 plotDF <- data.frame(motif_hits = c(countErrb, countNkx2), group = rep(c("Errb peaks", "Nkx2 peaks"), c(length(countErrb), length(countNkx2))))
 require(ggplot2)
 qplot(x=motif_hits, fill=group, data=plotDF, geom="bar", facets=group~.)
+
+#You can change the limits of the Y and X axes using the code below to improve the graph.
+qplot(x=motif_hits, fill=group, data=plotDF, geom="bar", facets=group~.) +xlim(0,5)+ylim(0,10000)
 ```
-
-
 Around 20,000 peak regions (areas of the genome with both the H3K4me1 and H3K27ac modifications) do not have a binding site for Erbb. Over 10,000 peak regions do have a single Errb site, and almost 5,000 have two Errb binding sites.Potentially, these may represent active enhancer elements bound by Errb in ES cells (the source of the chromatin used in the original ChIP experiment), as both of these histone modifications are associated with active enhancers in the genome. 
 
 However, I need to consider that some/many of these sites are false positives. How could I validate these analyses?
