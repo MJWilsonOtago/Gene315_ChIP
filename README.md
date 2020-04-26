@@ -122,15 +122,15 @@ peaks.seq <- getSeq(genome, peaks)
 ```
 
 5. Now you will use the motif IDs (from RSAT) to find the motifs in each sequence. In my example, my two top TF binding sites were for Errb and Nkx2-8.
-+ ID number:MA0141.2 	
-+ ID for my other factor of interest was MA0673.1
++ ID number:MA0141 	
++ ID for my other factor of interest was MA0673
 
-*remember the ID number you use will be different to the example here*
+*remember the ID number you use will be different to the example here* Only use the base ID (eg here I use MA0141 not MA0141.2")
 
-6. First I will load the DNA motif details for Errb
+6. First I will load the DNA motif details for Errb. 
 
 ```{r} 
-pfm <- getMatrixByID(JASPAR2018, ID="MA0141.2")
+pfm <- getMatrixByID(JASPAR2018, ID="MA0141")
 pfm
 ```
 
@@ -146,7 +146,7 @@ sum(countErrb >= 1)
 8. Repeat for the second motif. 
 
 ```{r} 
-pfm <- getMatrixByID(JASPAR2018, ID="MA0673.1")
+pfm <- getMatrixByID(JASPAR2018, ID="MA0673")
 pfm
 hitsNkx2 <- lapply(peaks.seq, function(s) matchPWM(as.matrix(pfm), s, min.score="75%"))
 # how many peak sequences contained this second motif?
