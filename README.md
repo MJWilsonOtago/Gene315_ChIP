@@ -26,7 +26,7 @@ library("RIPSeeker")
 library(GenomicRanges)
 ```
 
-2. Read the peak region bed files into R for each data set
+2. Read the peak region bed files into R for each data set. Remember- you need to change the .bed file name to one specific for your research question (eg the folders you downloaded earlier (task2) will contain the appropriate bed files eg limb H3K4me1 bed file is LImbH3K4me1E11.bed)
 
 ```{r}
 pk1=read.table("H3K4me1_all_peaks.bed")
@@ -39,7 +39,7 @@ pk2=read.table("H3K27Ac_all_peaks.bed")
 pk1.gr=makeGRangesFromDataFrame(pk1, seqnames.field=c("V1"),start.field=c("V2"), end.field=c("V3"))
 pk2.gr=makeGRangesFromDataFrame(pk2, seqnames.field=c("V1"),start.field=c("V2"), end.field=c("V3"))
 ```
-4. Generate a subset of peak regions: peak regions that a common to both data sets. In this example, this function will give me a list of the genome regions enriched for both the H3Kme1 and K27me3 modifications in ES cells.  
+4. Generate a subset of peak regions: peak regions that a common to both data sets. In this example, this function will give me a list of the genome regions enriched for both the H3Kme1 and K27me3 modifications in ES cells.   If there is an error with exporting subset.bed -  check if RIPSeeker package is installed correctly (ie if you type library("RIPSeeker") from above it shouldn’t have displayed an error).  
 
 ```{r}
 subset <- subsetByOverlaps(pk1.gr,pk2.gr)
@@ -67,8 +67,9 @@ export.bed(setdiff, "setdiff2.bed")
 
 Now you will have 3 new bed files in your working directory. One for peak regions common to both (ie. both histone marks are present at these genomic co-ordinates) and two files with the unique peak regions (ie. one of the histone marks is present).
 
+Now go back to the Week1 webpage and continue to the next task. 
 
-Week 2 Motif Analysis: find transcription factor sites overrepresented in your peak regions of interest
+### Week 2 Motif Analysis: find transcription factor sites overrepresented in your peak regions of interest
 
 ## How common are the top DNA binding motifs?
 
