@@ -169,4 +169,3 @@ Around 20,000 peak regions (areas of the genome with both the H3K4me1 and H3K27a
 
 However, I need to consider that some/many of these sites are false positives. How could I validate these analyses?
 
-https://rawgit.com/MJWilsonOtago/Gene315_ChIP/master/Motifs.html
