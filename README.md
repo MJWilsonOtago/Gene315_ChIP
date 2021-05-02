@@ -39,7 +39,7 @@ pk2=read.table("H3K27Ac_all_peaks.bed")
 pk1.gr=makeGRangesFromDataFrame(pk1, seqnames.field=c("V1"),start.field=c("V2"), end.field=c("V3"))
 pk2.gr=makeGRangesFromDataFrame(pk2, seqnames.field=c("V1"),start.field=c("V2"), end.field=c("V3"))
 ```
-4. Generate a subset of peak regions: peak regions that a common to both data sets. In this example, this function will give me a list of the genome regions enriched for both the H3Kme1 and K27me3 modifications in ES cells.   If there is an error with exporting subset.bed -  check if RIPSeeker package is installed correctly (ie if you type library("RIPSeeker") from above it shouldn’t have displayed an error).  
+4. Generate a subset of peak regions: peak regions that a common to both data sets. In this example, this function will give me a list of the genome regions enriched for both the H3Kme1 and K27me3 modifications in ES cells.   If there is an error with exporting subset.bed -  check if rtracklayer package is installed correctly (ie if you type library("rtracklayer") from above it shouldn’t have displayed an error).  
 
 ```{r}
 subset <- subsetByOverlaps(pk1.gr,pk2.gr)
