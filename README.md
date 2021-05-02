@@ -52,17 +52,17 @@ export.bed(subset, "subset.bed")
 5. How many peak regions are unique to the first data set (in my case, H3K4me1, loaded into R as pk1 (above))
 
 ```{r}
-setdiff <- setdiff(pk1.gr, pk2.gr)
-length(setdiff)
-export.bed(setdiff, "setdiff1.bed")
+setdiff1 <- setdiff(pk1.gr, pk2.gr)
+length(setdiff1)
+export.bed(setdiff1, "setdiff1.bed")
 ```
 
 6. What about for the second dataset (in this case pk2=H3K27ac)?
 
 ```{r}
-setdiff <- setdiff(pk2.gr, pk1.gr)
-length(setdiff)
-export.bed(setdiff, "setdiff2.bed")
+setdiff2 <- setdiff(pk2.gr, pk1.gr)
+length(setdiff2)
+export.bed(setdiff2, "setdiff2.bed")
 ```
 
 Now you will have 3 new bed files in your working directory. One for peak regions common to both (ie. both histone marks are present at these genomic co-ordinates) and two files with the unique peak regions (ie. one of the histone marks is present).
