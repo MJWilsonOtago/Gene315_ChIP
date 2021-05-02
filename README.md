@@ -11,19 +11,19 @@ First you need to make sure you have the required packages installed. If not, yo
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 BiocManager::install("GenomicRanges")
-BiocManager::install("RIPSeeker")
+BiocManager::install("rtracklayer")
 ```
 Note: if you are using an older version of R (earlier than 3.6), install the packages using Bioconductor
 ```{r message=FALSE, results='hide'}
 source("http://bioconductor.org/biocLite.R")
 biocLite("GenomicRanges")
-biocLite("RIPSeeker")
+biocLite("rtracklayer")
 ```
 
 1. Load the required packages into R
 ```{r message =FALSE, results='hide'}
-library("RIPSeeker")
-library(GenomicRanges)
+library("rtracklayer")
+library("GenomicRanges")
 ```
 
 2. Read the peak region bed files into R for each data set. Remember- you need to change the .bed file name to one specific for your research question (eg the folders you downloaded earlier (task2) will contain the appropriate bed files eg limb H3K4me1 bed file is LImbH3K4me1E11.bed)
