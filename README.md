@@ -5,7 +5,7 @@ Week 1 Using GenomicRanges to find overlapping and subsets of peak regions
 
 ## Using GenomicRanges to find common and unique peak regions
 
-If you are working on your own computer and do not have the required packages installed, you can download them from BiocManager using the code below. **Student Desktop already has these packaged installed - move onto the next step.
+If you are working on your own computer and do not have the required packages installed, you can download them from BiocManager using the code below. **Student Desktop already has these packaged installed - Go straight to step 1.
 
 ```{r message=FALSE, results='hide'}
 if (!requireNamespace("BiocManager", quietly = TRUE))
