@@ -5,7 +5,7 @@ Week 1 Using GenomicRanges to find overlapping and subsets of peak regions
 
 ## Using GenomicRanges to find common and unique peak regions
 
-First you need to make sure you have the required packages installed. If not, you can download them from bioconductor using the code below:
+If you are working on your own computer and do not have the required packages installed, you can download them from BiocManager using the code below. **Student Desktop already has these packaged installed - move onto the next step.
 
 ```{r message=FALSE, results='hide'}
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -69,7 +69,7 @@ Now you will have 3 new bed files in your working directory. One for peak region
 
 Next we will annotate where these regions are in relation to gene features (eg do they overlap with gene promoter regions?)
 
-7. Install the required packages.
+7. If you are working on your own computer and do not have the required packages installed, you can download them from BiocManager using the code below. **StudentDesktop already has these packaged installed - move onto the next step.
 ```{r}
 BiocManager::install("ChIPseeker")
 BiocManager::install("TxDb.Mmusculus.UCSC.mm10.knownGene")
