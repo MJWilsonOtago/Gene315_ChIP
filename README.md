@@ -10,14 +10,24 @@ If you are working on your own computer and do not have the required packages in
 ```{r message=FALSE, results='hide'}
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
+    
 BiocManager::install("GenomicRanges")
+
 BiocManager::install("rtracklayer")
+
+BiocManager::install("ChIPseeker")
+
+BiocManager::install("TxDb.Mmusculus.UCSC.mm10.knownGene")
+
+BiocManager::install("clusterProfiler")
+
 ```
 Note: if you are using an older version of R (earlier than 3.6), install the packages using Bioconductor
 ```{r message=FALSE, results='hide'}
 source("http://bioconductor.org/biocLite.R")
 biocLite("GenomicRanges")
 biocLite("rtracklayer")
+
 ```
 
 1. Load the required packages into R
@@ -69,13 +79,15 @@ Now you will have 3 new bed files in your working directory. One for peak region
 
 Next we will annotate where these regions are in relation to gene features (eg do they overlap with gene promoter regions?)
 
-7. If you are working on your own computer and do not have the required packages installed, you can download them from BiocManager using the code below. **StudentDesktop already has these packaged installed - move onto the next step.
+7. If you are working on your own computer, and haven't installed all the remaining packages (below),you can download them from BiocManager using the code below. **StudentDesktop already has these packaged installed - move onto the next step.
 ```{r}
 BiocManager::install("ChIPseeker")
+
 BiocManager::install("TxDb.Mmusculus.UCSC.mm10.knownGene")
+
 BiocManager::install("clusterProfiler")
 ```
-8. Load this packages into R
+8. Load these packages into R
 
 ```{r}
 library(clusterProfiler)
